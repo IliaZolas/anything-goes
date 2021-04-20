@@ -14,3 +14,17 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+h1 {
+    font-size: 64px !important;
+    font-family: Arial !important;
+    color: orange;
+    text-shadow: 0 10px 10px rgba(0,0,0,0.1);
+}
+
+h3 {
+    font-size: 34px !important;
+    font-family: Arial !important;
+    color: grey;
+    text-shadow: 0 10px 10px rgba(0,0,0,0.1);
+}
