@@ -1,2 +1,20 @@
-<h1>Jobs#new</h1>
-<p>Find me in app/views/jobs/new.html.erb</p>
+<h1>Create a new job here</h1>
+<p>should be form below</p>
+
+ <div class="">
+    <h2>Add new job listing</h2>
+        <%= simple_form_for [@job] do |f| %>
+        <%= f.input :job_title,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "Job Title" }%>
+        <%= f.input :job_description,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "Job Description" }%>
+        <%= f.input :photo,
+                    autofocus: true,
+                    as: :file %>
+        <%= f.submit "CREATE", class: "btn btn-primary" %>
+        <% end %>
+</div>
