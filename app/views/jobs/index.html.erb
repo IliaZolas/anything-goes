@@ -1,17 +1,21 @@
-<h1>All Jobs</h1>
-<p>All jobs should appear here</p>
-
-<% @job.each do |job| %>
-<div class="job-card">
-    <div class="job-image">
-        <% if job.photo.attached? %>
-            <%= cl_image_tag job.photo.key, class: "", height: 180 %>
-        <% end %>
+<div class="container-job-index">
+    <h1>All Jobs</h1>
+    <p>All jobs should appear here</p>
+    <% @job.each do |job| %>
+    <div class="job-card">
+        <div class="job-image">
+            <% if job.photo.attached? %>
+                <%= cl_image_tag job.photo.key, class: "job-image" %>
+            <% end %>
+        </div>
+        <div class="job-info">
+            <h3 class="job-card-title"><%= job.job_title %></h3>
+            <p class="job-card-description"><%= job.job_description %></p>
+            <p class="job-card-price">Paying R <%= job.job_price %></p>
+            <div class="job-view-button">
+                <%= link_to "View Job", job_path(job), class: "button-card" %>
+            </div>
+        </div>
     </div>
-    <div class="job-info">
-        <h1><%= job.job_title %></h1>
-        <p><%= job.job_description %></p>
-        <p>R <%= job.job_price %></p>
-    </div>
+    <% end %>
 </div>
-<% end %>

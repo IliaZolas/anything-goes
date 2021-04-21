@@ -1,11 +1,42 @@
 .job-card {
     display: flex;
     background: white;
-    width: 70%;
+    width: 60%;
     border-radius: 10px;
-    margin: 20px 20px;
+    margin: 20px 0;
+    height: 250px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
 }
 
 .job-info {
     padding: 20px;
+}
+
+.job-image {
+    height: 250px;
+    border-radius: 10px 0 0 10px;
+}
+
+.job-card-title {
+    color: orange;
+}
+
+.job-card-description {
+
+}
+
+.job-card-price {
+    font-weight: bold;
+}
+
+.job-view-button {
+    text-align: right;
+}
+
+.button-card, a {
+    background: orange;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
 }

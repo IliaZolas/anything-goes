@@ -1,19 +1,16 @@
-<h1>See Job Listing</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
-
-<div class="">
+<div class="container-job-show">
+    <h1>See Job Listing</h1>
     <div class="">
     <% if @job.photo.attached? %>
-        <%= cl_image_tag @job.photo.key, crop: :fill, class: ""%>
+        <%= cl_image_tag @job.photo.key, crop: :fill, class: "image-job-show"%>
     <% end %>
     <div class="">
         <div class="">
-            <h1 class=""><%= @job.title %></h1>
-            <p class=""><b><%= @job.price %> CHF</b> / day</p>
+            <h1 class=""><%= @job.job_title %></h1>
+            <p class=""><%= @job.job_description %></p>
+            <p class=""><b>R <%= @job.job_price %> </p>
         </div>
-    <%= link_to "BOOK NOW", new_studio_booking_path(@studio), class: ''%>
-        <p class="studio-description mt-5"><%= @job.description %></p>
-        <hr>
+    <%= link_to "Apply", class: "button-card"%>
     </div>
   </div>
 </div>
