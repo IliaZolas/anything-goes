@@ -2,8 +2,16 @@
 <p>All jobs should appear here</p>
 
 <% @job.each do |job| %>
-<div>
-    <h1><%= job.job_title %></h1>
-    <p><%= job.job_description %></p>
+<div class="job-card">
+    <div class="job-image">
+        <% if job.photo.attached? %>
+            <%= cl_image_tag job.photo.key, class: "", height: 180 %>
+        <% end %>
+    </div>
+    <div class="job-info">
+        <h1><%= job.job_title %></h1>
+        <p><%= job.job_description %></p>
+        <p>R <%= job.job_price %></p>
+    </div>
 </div>
 <% end %>
