@@ -2,5 +2,8 @@
 <p>All jobs should appear here</p>
 
 <% @job.each do |job| %>
-
+<div>
+    <h1><%= job.job_title %></h1>
+    <p><%= job.job_description %></p>
+</div>
 <% end %>
