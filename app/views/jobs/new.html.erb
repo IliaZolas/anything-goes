@@ -1,7 +1,5 @@
-<h1>Create a new job here</h1>
-<p>should be form below</p>
-
- <div class="">
+<div class="container-new-job">
+<h1>Create a job</h1>
     <h2>Add new job listing</h2>
         <%= simple_form_for [@job] do |f| %>
         <%= f.input :job_title,
@@ -15,7 +13,7 @@
         <%= f.input :job_long_description,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "Long Description" }%>
+                    input_html: { class: 'long-description-input', autocomplete: "Long Description" }%>
         <%= f.input :job_location,
                     required: true,
                     autofocus: true,
