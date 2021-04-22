@@ -11,6 +11,7 @@
                     autofocus: true,
                     input_html: { autocomplete: "Short Description" }%>
         <%= f.input :job_long_description,
+                    :as => :text,
                     required: true,
                     autofocus: true,
                     input_html: { class: 'long-description-input', autocomplete: "Long Description" }%>
