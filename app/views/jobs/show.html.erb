@@ -1,14 +1,17 @@
 <div class="container-job-show">
-    <h1>See Job Listing</h1>
-    <div class="">
+    <div class="flex">
+    <div>
     <% if @job.photo.attached? %>
         <%= cl_image_tag @job.photo.key, crop: :fill, class: "image-job-show"%>
     <% end %>
-    <div class="">
+    </div>
+    <div class="job-show-info">
         <div class="">
             <h1 class=""><%= @job.job_title %></h1>
             <p class=""><%= @job.job_description %></p>
-            <p class=""><b>R <%= @job.job_price %> </p>
+            <p class="">Full Details: <%= @job.job_long_description %></p>
+            <p class="">Location: <%= @job.job_location %></p>
+            <p class="">Price: <b>R <%= @job.job_price %> </p>
         </div>
     <%= link_to "Apply", class: "button-card"%>
     </div>

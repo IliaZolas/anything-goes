@@ -11,7 +11,15 @@
         <%= f.input :job_description,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "Job Description" }%>
+                    input_html: { autocomplete: "Short Description" }%>
+        <%= f.input :job_long_description,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "Long Description" }%>
+        <%= f.input :job_location,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "Job Location" }%>            
         <%= f.input :job_price,
                     required: true,
                     autofocus: true,

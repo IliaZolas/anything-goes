@@ -1,0 +1,9 @@
+input[type=submit] {
+    background: orange;
+    color: white;
+    &:hover {
+        text-decoration: none;
+        color: white;
+        background: darkorange;
+    }
+}
