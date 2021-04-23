@@ -1,0 +1,30 @@
+<div class="container-job-index">
+    <h1>All My Posted Jobs</h1>
+    <p>All jobs should appear here</p>
+    <% @job.each do |job| %>
+    <div class="job-card">
+        <div class="job-image">
+            <% if job.photo.attached? %>
+                <%= cl_image_tag job.photo.key, class: "job-image" %>
+            <% end %>
+        </div>
+        <div class="job-info">
+            <h3 class="job-card-title"><%= job.job_title %></h3>
+            <p class="job-card-description"><%= job.job_description %></p>
+            <p class="job-card-price">Paying R <%= job.job_price %></p>
+            <div class="job-view-button flex end card-icons">
+                <div class="location-icon-width">
+                    <i class="fas fa-map-pin icon"><span class="icon-text"><%= job.job_location %></span></i>
+                </div>
+                <%= link_to job_path(job), method: :delete do %>
+                    <i class="fas fa-trash icon"></i>
+                <% end %>
+                <%= link_to edit_job_path(job) do %>
+                    <i class="far fa-edit icon"></i>
+                <% end %>
+                <%= link_to "View Job", job_path(job), class: "button-card" %>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>

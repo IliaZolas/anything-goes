@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get "jobs/:id/edit", to: "jobs#edit"
   patch "jobs/:id", to: "jobs#update"
 
+  get "user/jobs/", to: 'jobs#posted', as: 'posted'
+
   resources :users,  only: [:index, :show, :update]
 
 

@@ -37,9 +37,13 @@ class JobsController < ApplicationController
     redirect_to jobs_path(@job)
   end
 
+  def posted
+    @job = Job.where(user_id: current_user)
+  end
+
   private
 
   def job_params
-      params.require(:job).permit(:job_title, :job_description, :job_long_description, :job_location, :job_price, :photo)
+      params.require(:job).permit(:user_id, :job_title, :job_description, :job_long_description, :job_location, :job_price, :photo)
   end
 end
