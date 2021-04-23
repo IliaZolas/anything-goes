@@ -16,6 +16,9 @@
                 <div class="location-icon-width">
                     <i class="fas fa-map-pin icon"><span class="icon-text"><%= job.job_location %></span></i>
                 </div>
+                <%= link_to job_path(job), method: :delete do %>
+                    <i class="fas fa-trash icon"></i>
+                <% end %>
                 <%= link_to edit_job_path(job) do %>
                     <i class="far fa-edit icon"></i>
                 <% end %>
