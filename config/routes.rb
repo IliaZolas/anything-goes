@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   
   resources :jobs
 
+  get "jobs/:id/edit", to: "jobs#edit"
+  patch "jobs/:id", to: "jobs#update"
+
   resources :users,  only: [:index, :show, :update]
 
 
