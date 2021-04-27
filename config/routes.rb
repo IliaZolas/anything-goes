@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'saved_jobs/index'
+  get 'saved_jobs/new'
+  get 'saved_jobs/create'
+  get 'saved_jobs/destroy'
   get 'users/index'
   get 'users/show'
   get 'users/update'
