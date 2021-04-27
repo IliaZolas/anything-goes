@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   authenticated :user do
     root 'jobs#index'
   
-  resources :jobs
+  resources :jobs do  
+    resources :saved_jobs
+  end
+
 
   get "jobs/:id/edit", to: "jobs#edit"
   patch "jobs/:id", to: "jobs#update"
@@ -27,6 +30,8 @@ Rails.application.routes.draw do
   get "user/jobs/", to: 'jobs#posted', as: 'posted'
 
   resources :users,  only: [:index, :show, :update]
+
+  get '/user/:id/savedjobs', to: 'saved_jobs#usersaved', as: :usersaved
 
 
   end

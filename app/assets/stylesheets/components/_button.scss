@@ -9,3 +9,11 @@ input[type=submit] {
         border: none;
     }
 }
+
+.no-styling {
+    text-decoration: none !important;
+    background: none;
+    padding: 0;
+    height: 0;
+    border: 0;
+}   
