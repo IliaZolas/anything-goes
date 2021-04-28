@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     root 'jobs#index'
   
   resources :jobs do  
-    resources :saved_jobs
+    resources :user_jobs
   end
 
 
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   resources :users,  only: [:index, :show, :update]
 
-  get '/user/:id/savedjobs', to: 'saved_jobs#usersaved', as: :usersaved
+  get '/user/:id/savedjobs', to: 'user_jobs#usersaved', as: :usersaved
 
 
   end

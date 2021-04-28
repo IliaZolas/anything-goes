@@ -1,4 +1,4 @@
-class SavedJobsController < ApplicationController
+class UserJobsController < ApplicationController
   before_action :find_job, only: [:create]
 
   def index
@@ -22,7 +22,7 @@ class SavedJobsController < ApplicationController
   end
 
   def usersaved
-    @job = current_user.saved_jobs
+    @jobs = current_user.saved_jobs
   end
 
   private

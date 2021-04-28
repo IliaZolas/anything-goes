@@ -1,7 +1,7 @@
 <div class="container-job-index">
     <h1>My Saved Jobs</h1>
     <p>All saved jobs should appear here</p>
-    <% @job.each do |job| %>
+    <% @jobs.each do |job| %>
     <div class="job-card">
         <div class="job-image">
             <% if job.photo.attached? %>

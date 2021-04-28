@@ -22,10 +22,10 @@
                 <%= link_to edit_job_path(job) do %>
                     <i class="far fa-edit icon"></i>
                 <% end %>
-                <%= simple_form_for @saved_job, url: job_saved_jobs_path(job.id), method: :post do |f| %>
-                    <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id} %>
-                    <%= f.input :job_id, as: :hidden, input_html: { value: job.id } %>
-                        <%= button_tag type: 'submit', class: "no-styling", id: "" do %>
+                    <%= simple_form_for @saves, url: job_user_jobs_path(job.id), method: :post do |f| %>
+                        <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+                        <%= f.input :job_id, as: :hidden, input_html: { value: job.id } %>
+                            <%= button_tag type: 'submit', class: "no-styling", id: "" do %>
                             <i class="far fa-bookmark icon"></i>
                         <% end %>
                 <% end %>

@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
   def index
     @job = Job.all
-    @saved_job = SavedJob.new
+    @saves = UserJob.new
   end
 
   def show
