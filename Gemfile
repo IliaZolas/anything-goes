@@ -66,5 +66,3 @@ gem 'cloudinary', '~> 1.16.0'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
-#refactor gem
-# gem install rails_refactor
