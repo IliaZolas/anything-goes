@@ -1,30 +1,28 @@
-<h1><%= @user.fname %></h1>
-<p>Welcome to your profile</p>
-
 <div class="profile-area" id="">
-
-    <div class="avatar-account">
-        <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, class: "avatar-large-account" %>
-        <%end%>
+    <div class="profile-container profile-cards">
+        <div class="profile-card">
+            <% if @user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, class: "avatar-profile-page" %>
+            <%end%>
+            <div class="profile-heading">
+                <h1><%= @user.fname %> <%= @user.lname %></h1>
+            </div>
+            <div class="username-heading">
+                <h3><%= @user.username %></h3>
+            </div>
+            <div class="user-email-heading">
+                <p><%= @user.email %></p>
+            </div>
+            <div class="user-update-btn">
+                <%= link_to "Edit", edit_user_registration_path(current_user), class: "update-btn" %>
+            </div>
+        </div>
+        <div class="profile-card">
+            <div class="profile-heading">
+                <p><%= @user.user_description %></p>
+            </div>
+        </div>
     </div>
-
-    <div class="profile-heading">
-        <h1><%= @user.fname %> <%= @user.lname %></h1>
-    </div>
-
-    <div class="username-heading">
-        <h3><%= @user.username %></h3>
-    </div>
-
-    <div class="user-email-heading">
-        <p><%= @user.email %></p>
-    </div>
-
-    <div class="user-update-btn">
-        <%= link_to "Edit", edit_user_registration_path(current_user), class: "update-btn" %>
-    </div>
-    
 </div>
 
 
