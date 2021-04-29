@@ -2,18 +2,18 @@ class UserJobsController < ApplicationController
   before_action :find_job, only: [:create]
 
   def index
-    @job = SavedJob.where(user_id: current_user)
+    @job = UserJob.where(user_id: current_user)
   end
 
   def new
-    @job = SavedJob.new
+    @job = UserJob.new
   end
 
   def create
     if already_saved?
       flash[:notice] = "You can't save more than once"
       else
-      @job.saved_jobs.create(user_id: current_user.id, job_id:params[:job_id])
+      @job.user_jobs.create(user_id: current_user.id, job_id:params[:job_id])
     end
     redirect_to jobs_path
   end
@@ -32,7 +32,7 @@ class UserJobsController < ApplicationController
   end
   
   def already_saved?
-    SavedJob.where(user_id: current_user.id, job_id:params[:job_id]).exists?
+    UserJob.where(user_id: current_user.id, job_id:params[:job_id]).exists?
   end
 
   def job_params
