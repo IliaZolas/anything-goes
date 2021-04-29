@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   get '/user/:id/savedjobs', to: 'user_jobs#usersaved', as: :usersaved
 
+  resources :users,  only: [:index, :show, :update]
+
 
   end
 end

@@ -32,9 +32,6 @@
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
-        <li>
-          <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-        </li>
         <li class="nav-item dropdown">
 
         <% if current_user.photo.attached? %>
