@@ -1,2 +1,30 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.fname %></h1>
+<p>Welcome to your profile</p>
+
+<div class="profile-area" id="">
+
+    <div class="avatar-account">
+        <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, class: "avatar-large-account" %>
+        <%end%>
+    </div>
+
+    <div class="profile-heading">
+        <h1><%= @user.fname %> <%= @user.lname %></h1>
+    </div>
+
+    <div class="username-heading">
+        <h3><%= @user.username %></h3>
+    </div>
+
+    <div class="user-email-heading">
+        <p><%= @user.email %></p>
+    </div>
+
+    <div class="user-update-btn">
+        <%= link_to "Edit", edit_user_registration_path(current_user), class: "update-btn" %>
+    </div>
+    
+</div>
+
+
