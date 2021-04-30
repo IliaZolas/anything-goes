@@ -27,6 +27,13 @@ class JobappsController < ApplicationController
   def destroy
   end
 
+  def applicant
+    @jobapp = Jobapp.where(user_id: current_user)
+    # Show all jobs from poster and not current user
+    # Jobapps has job_id which belongs to the poster
+    # In Jobapp select all with job_id that belongs to poster
+  end
+
   private
 
   def jobapp_params

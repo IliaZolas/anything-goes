@@ -38,6 +38,8 @@ Rails.application.routes.draw do
 
   get '/user/:id/savedjobs', to: 'user_jobs#usersaved', as: :usersaved
 
+  get '/user/:id/applicants', to: 'jobapps#applicant', as: :applicant
+
   resources :jobs do  
     resources :jobapps
   end
