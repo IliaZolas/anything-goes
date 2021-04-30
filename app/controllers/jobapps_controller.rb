@@ -1,6 +1,7 @@
 class JobappsController < ApplicationController
   def index
     @jobapp = Jobapp.where(user_id: current_user)
+    @job = Job.all
   end
 
   def show
