@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :jobs
   has_many :user_jobs
   has_many :saved_jobs, through: :user_jobs, source: :job
+  has_many :applied_jobs, through: :jobapps, source: :job
 
   has_one_attached :photo
 end

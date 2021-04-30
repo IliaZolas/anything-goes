@@ -1,0 +1,27 @@
+<div class="container-job-index">
+    <h1>All Applied Jobs</h1>
+    <p>All jobs you applied to should appear here</p>
+    <% @jobapp.each do |jobapp| %>
+    <div class="job-card">
+        <div class="job-image">
+            <% if jobapp.photo.attached? %>
+                <%= cl_image_tag jobapp.photo.key, class: "job-image" %>
+            <% end %>
+        </div>
+        <div class="job-info">
+            <h3 class="job-card-title"><%= jobapp.job_title %></h3>
+            <p class="job-card-description"><%= jobapp.job_description %></p>
+            <p class="job-card-price">Paying R <%= jobapp.job_price %></p>
+            <div class="job-view-button flex end card-icons">
+                <div class="location-icon-width">
+                    <i class="fas fa-map-pin icon"><span class="icon-text"><%= jobapp.job_location %></span></i>
+                </div>
+                <%= link_to job_path(jobapp), method: :delete do %>
+                    <i class="fas fa-trash icon"></i>
+                <% end %>
+                <%= link_to "View Job", job_path(job), class: "button-card" %>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>

@@ -1,0 +1,9 @@
+<div class="profile-container">
+  <h1>Apply for the job</h1>
+  <p><%= current_user.fname %>, you are applying for <%= %> job</p>
+
+  <%= simple_form_for [@job, @jobapp] do |f| %>
+    <%= f.input :message %>
+    <%= f.submit "BOOK", class: "btn btn-primary" %>
+  <% end %>
+</div>

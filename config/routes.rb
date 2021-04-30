@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'job_app/index'
+  get 'job_app/show'
+  get 'job_app/new'
+  get 'job_app/create'
+  get 'job_app/update'
+  get 'job_app/destroy'
   get 'saved_jobs/index'
   get 'saved_jobs/new'
   get 'saved_jobs/create'
@@ -23,7 +29,6 @@ Rails.application.routes.draw do
     resources :user_jobs
   end
 
-
   get "jobs/:id/edit", to: "jobs#edit"
   patch "jobs/:id", to: "jobs#update"
 
@@ -33,7 +38,10 @@ Rails.application.routes.draw do
 
   get '/user/:id/savedjobs', to: 'user_jobs#usersaved', as: :usersaved
 
-  resources :users,  only: [:index, :show, :update]
+  resources :jobs do  
+    resources :jobapps
+  end
+
 
 
   end
