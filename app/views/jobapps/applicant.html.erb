@@ -4,7 +4,7 @@
     <% @applicants.each do |jobapp| %>
     <div class="job-card">
         <div class="job-image">
-            <% if jobapp.photo.attached? %>
+            <% if jobapp[job].photo.attached? %>
                 <%= cl_image_tag jobapp.photo.key, class: "job-image" %>
             <% end %>
         </div>

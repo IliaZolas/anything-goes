@@ -31,7 +31,8 @@ class JobappsController < ApplicationController
     @applicants = []
     current_user.jobs.each do |job|
       job.jobapps.each do |jobapp|
-        @applicants << jobapp.user
+        hash_jobapp = {job: jobapp.job, user: jobapp.user}
+        @applicants << hash_jobapp
       end
     end
   end
