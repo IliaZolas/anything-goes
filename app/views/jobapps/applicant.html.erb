@@ -1,24 +1,24 @@
 <div class="container-job-index">
     <h1>All Applicants to my jobs</h1>
     <p>All applicants to your jobs should appear here</p>
-    <% @jobapp.each do |jobapp| %>
+    <% @applicants.each do |jobapp| %>
     <div class="job-card">
         <div class="job-image">
-            <% if jobapp.job.photo.attached? %>
-                <%= cl_image_tag jobapp.job.photo.key, class: "job-image" %>
+            <% if jobapp.photo.attached? %>
+                <%= cl_image_tag jobapp.photo.key, class: "job-image" %>
             <% end %>
         </div>
         <div class="job-info">
-            <h3 class="job-card-title"><%= jobapp.job.job_title %></h3>
-            <p class="job-card-description"><%= jobapp.job.job_description %></p>
+            <h3 class="job-card-title"><%= jobapp.fname %></h3>
+            <p class="job-card-description"><%= jobapp.lname %></p>
             <div class="flex">
-                <p class="job-card-description padding-right">Applicant:<%= jobapp.user.fname %></p>
-                <p class="job-card-description">Job Poster:<%= jobapp.job.user.fname %></p>
+                <p class="job-card-description padding-right">Applicant:<%= jobapp.fname %></p>
+                <p class="job-card-description">Job Poster:<%= jobapp.fname %></p>
             </div>
-            <p class="job-card-price">Paying R <%= jobapp.job.job_price %></p>
+            <p class="job-card-price">Paying R <%= jobapp.email %></p>
             <div class="job-view-button flex end card-icons">
                 <div class="location-icon-width">
-                    <i class="fas fa-map-pin icon"><span class="icon-text"><%= jobapp.job.job_location %></span></i>
+                    <i class="fas fa-map-pin icon"><span class="icon-text"><%= jobapp.user_address %></span></i>
                 </div>
                 <%= link_to job_path(jobapp), method: :delete do %>
                     <i class="fas fa-trash icon"></i>

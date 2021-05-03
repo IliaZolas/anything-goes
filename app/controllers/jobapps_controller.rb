@@ -28,10 +28,12 @@ class JobappsController < ApplicationController
   end
 
   def applicant
-    @jobapp = Jobapp.where(user_id: current_user)
-    # Show all jobs from poster and not current user
-    # Jobapps has job_id which belongs to the poster
-    # In Jobapp select all with job_id that belongs to poster
+    @applicants = []
+    current_user.jobs.each do |job|
+      job.jobapps.each do |jobapp|
+        @applicants << jobapp.user
+      end
+    end
   end
 
   private
