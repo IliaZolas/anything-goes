@@ -28,13 +28,14 @@ class JobappsController < ApplicationController
   end
 
   def applicant
-    @applicants = []
-    current_user.jobs.each do |job|
-      job.jobapps.each do |jobapp|
-        hash_jobapp = {job: jobapp.job, user: jobapp.user}
-        @applicants << hash_jobapp
-      end
-    end
+    @applicants = current_user.applicants
+    # @applicants = []
+    # current_user.jobs.each do |job|
+    #   job.jobapps.each do |jobapp|
+    #     hash_jobapp = {job: jobapp.job, user: jobapp.user}
+    #     @applicants << hash_jobapp
+    #   end
+    # end
   end
 
   private

@@ -10,4 +10,17 @@ class User < ApplicationRecord
   has_many :applied_jobs, through: :jobapps, source: :job
 
   has_one_attached :photo
+
+  def applicants
+    @applicants = []
+    self.jobs.each do |job|
+      job.jobapps.each do |jobapp|
+        hash_jobapp = {job: jobapp.job, user: jobapp.user}
+        @applicants << hash_jobapp
+      end
+    end
+    @applicants
+  end
+
+
 end
