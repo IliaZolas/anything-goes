@@ -15,7 +15,7 @@ class User < ApplicationRecord
     @applicants = []
     self.jobs.each do |job|
       job.jobapps.each do |jobapp|
-        hash_jobapp = {job: jobapp.job, user: jobapp.user}
+        hash_jobapp = {job: jobapp.job, user: jobapp.user, jobapp: jobapp}
         @applicants << hash_jobapp
       end
     end

@@ -15,7 +15,7 @@
                 <p class="job-card-description padding-right">Applicant:<%= jobapp[:user].fname %></p>
                 <p class="job-card-description">Job Poster:<%= jobapp[:user].fname %></p>
             </div>
-            <p class="job-card-price">Paying R <%= jobapp[:user].email %></p>
+            <p class="job-card-price">Message: <%= jobapp[:jobapp].message %></p>
             <div class="job-view-button flex end card-icons">
                 <div class="location-icon-width">
                     <i class="fas fa-map-pin icon"><span class="icon-text"><%= jobapp[:user].user_address %></span></i>
