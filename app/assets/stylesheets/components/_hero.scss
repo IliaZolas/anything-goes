@@ -1,7 +1,7 @@
 .hero-header {
     position:relative;
     // height: 100vh;
-    max-height: 500px;
+    height: 600px;
     // margin: 20px auto;
 }
 
@@ -17,6 +17,11 @@
 
 .hero-image {
     width: 100%; 
-    height: 100vh; 
+    height: 600px; 
     object-fit: cover;
+    // position: fixed;
+}
+
+.red {
+    background: rgba(0,0,0,0.1);
 }

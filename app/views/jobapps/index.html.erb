@@ -1,6 +1,13 @@
 <div class="container-job-index">
     <h1>All Applied Jobs</h1>
     <p>All jobs you applied to should appear here</p>
+    <div class="flex">
+        <p>Applied</p>
+        <p> | </p>
+        <p>Accepted</p>
+        <p> | </p>
+        <p>Declined</p>
+    </div>
     <% @jobapp.each do |jobapp| %>
     <div class="job-card">
         <div class="job-image">
