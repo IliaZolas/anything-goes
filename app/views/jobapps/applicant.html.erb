@@ -2,19 +2,15 @@
     <h1>All Applicants to my jobs</h1>
     <p>All applicants to your jobs should appear here</p>
     <% @applicants.each do |jobapp| %>
-    <div class="job-card">
+    <div class="applicant-card">
         <div class="job-image">
             <% if jobapp[:user].photo.attached? %>
-                <%= cl_image_tag jobapp[:user].photo.key, class: "job-image" %>
+                <%= cl_image_tag jobapp[:user].photo.key, class: "applicant-image" %>
             <% end %>
         </div>
         <div class="job-info">
-            <h3 class="job-card-title"><%= jobapp[:user].fname %></h3>
-            <p class="job-card-description"><%= jobapp[:job].job_title %></p>
-            <div class="flex">
-                <p class="job-card-description padding-right">Applicant:<%= jobapp[:user].fname %></p>
-                <p class="job-card-description">Job Poster:<%= jobapp[:user].fname %></p>
-            </div>
+            <h3 class="job-card-title"><%= jobapp[:user].fname %> <%= jobapp[:user].lname %></h3>
+            <p class="job-card-description">Applying for: <%= jobapp[:job].job_title %></p>
             <p class="">Message: <%= jobapp[:jobapp].message %></p>
             <div class="job-view-button flex end card-icons">
                 <div class="location-icon-width">
@@ -23,7 +19,10 @@
                 <%= link_to job_path(jobapp), method: :delete do %>
                     <i class="fas fa-trash icon"></i>
                 <% end %>
-                <%= link_to "View Job", job_path(jobapp), class: "button-card" %>
+                <div class="flex">
+                    <%= link_to "Accept", job_path(jobapp), class: "button-card-applicant" %>
+                    <%= link_to "Decline", job_path(jobapp), class: "button-card-applicant" %>
+                </div>
             </div>
         </div>
     </div>
