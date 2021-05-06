@@ -3,20 +3,22 @@
     <p>All applicants to your jobs should appear here</p>
     <% @applicants.each do |jobapp| %>
     <div class="applicant-card">
-        <div class="job-image">
+
+        <div class="applicant-info">
+        <div class="flex">
             <% if jobapp[:user].photo.attached? %>
-                <%= cl_image_tag jobapp[:user].photo.key, class: "applicant-image" %>
+                <%= cl_image_tag jobapp[:user].photo.key, class: "applicant-image-small" %>
             <% end %>
-        </div>
-        <div class="job-info">
-            <h3 class="job-card-title"><%= jobapp[:user].fname %> <%= jobapp[:user].lname %></h3>
-            <p class="job-card-description">Applying for: <%= jobapp[:job].job_title %></p>
-            <p class="">"<%= jobapp[:jobapp].message %>"</p>
-            <div class="job-view-button flex end card-icons">
+            <div>
+                <h3 class="job-card-title"><%= jobapp[:user].fname %> <%= jobapp[:user].lname %></h3>
+                <p class="job-card-description">Applying for: <%= jobapp[:job].job_title %></p>
                 <div class="location-icon-width">
                     <i class="fas fa-map-pin icon"><span class="icon-text"><%= jobapp[:user].user_address %></span></i>
                 </div>
+                <p class="">"<%= jobapp[:jobapp].message %>"</p>
+                
             </div>
+        </div>
             <div class="flex accept-decline">
                     <%= link_to "Accept", job_path(jobapp), class: "button-card-applicant" %>
                     <%= link_to "Decline", job_path(jobapp), class: "button-card-applicant" %>
