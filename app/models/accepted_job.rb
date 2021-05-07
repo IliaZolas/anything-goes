@@ -1,4 +1,3 @@
 class AcceptedJob < ApplicationRecord
-  belongs_to :user
-  belongs_to :job
+  has_many :jobapps
 end
