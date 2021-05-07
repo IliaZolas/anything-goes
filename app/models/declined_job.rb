@@ -1,3 +1,3 @@
 class DeclinedJob < ApplicationRecord
-  belongs_to :jobapp
+  has_many :jobapps
 end
