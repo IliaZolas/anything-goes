@@ -27,7 +27,7 @@
             </div>
         </div>
             <div class="flex accept-decline">
-                    <%= link_to "Accept", accept_path(jobapp), class: "button-card-applicant" %>
+                    <%= link_to "Accept", accept_jobapp_path(jobapp[:jobapp]), class: "button-card-applicant" %>
                     <%= link_to "Decline", job_path(jobapp), class: "button-card-applicant" %>
                 </div>
         </div>

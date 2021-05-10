@@ -36,11 +36,15 @@ Rails.application.routes.draw do
 
   resources :users,  only: [:index, :show, :update]
 
+  resources :jobapps, only: [] do
+    get :accept, on: :member
+  end
+
   get '/user/:id/savedjobs', to: 'user_jobs#usersaved', as: :usersaved
 
   get '/user/:id/applicants', to: 'jobapps#applicant', as: :applicant
 
-  get '/user/:id/applicants', to: 'jobapps#accept', as: :accept
+  # get '/jobapps/:id/accept', to: 'jobapps#accept', as: :accept
 
   resources :jobs do  
     resources :jobapps

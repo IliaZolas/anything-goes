@@ -38,9 +38,11 @@ class JobappsController < ApplicationController
     # end
   end
 
-  def accepted
+  def accept
     @accept = Jobapp.find(params[:id])
-    @accept.update_attribute(accepted: true)
+    @accept.update_attribute(:accepted, true)
+    # @accept.accepted = true
+    # @accept.save!
     redirect_to applicant_path(current_user)
   end
 
