@@ -40,6 +40,8 @@ Rails.application.routes.draw do
 
   get '/user/:id/applicants', to: 'jobapps#applicant', as: :applicant
 
+  get '/user/:id/applicants', to: 'jobapps#accept', as: :accept
+
   resources :jobs do  
     resources :jobapps
   end

@@ -38,6 +38,12 @@ class JobappsController < ApplicationController
     # end
   end
 
+  def accepted
+    @accept = Jobapp.find(params[:id])
+    @accept.update_attribute(accepted: true)
+    redirect_to applicant_path(current_user)
+  end
+
   private
 
   def jobapp_params
