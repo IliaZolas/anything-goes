@@ -46,6 +46,10 @@ class JobappsController < ApplicationController
     redirect_to applicant_path(current_user)
   end
 
+  # def acceptedjobs
+    # @acceptedjobs = Jobapp.applicants.where(accepted: :true)
+  # end
+
   private
 
   def jobapp_params
