@@ -47,7 +47,7 @@ class JobappsController < ApplicationController
   end
 
   def accepted
-    @acceptedjobs = current_user.applicants.find(accepted: true)
+    @acceptedjobs = Jobapp.where(accepted: true).where(user_id: current_user)
     # Jobapp.where(accepted: true)
   end
 
