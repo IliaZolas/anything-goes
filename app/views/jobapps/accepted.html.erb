@@ -1,0 +1,36 @@
+<div class="container-job-index">
+    <h1>All Accepted Applicants</h1>
+    <p>All applicants who have been accepted should appear here</p>
+    <div class="flex">
+        <p>Accepted</p>
+        <p> | </p>
+        <p>Declined</p>
+        <p> | </p>
+        <p>Completed</p>
+    </div>
+    <% @applicants.each do |jobapp| %>
+    <div class="applicant-card">
+
+        <div class="applicant-info">
+        <div class="flex">
+            <% if jobapp[:user].photo.attached? %>
+                <%= cl_image_tag jobapp[:user].photo.key, class: "applicant-image-small" %>
+            <% end %>
+            <div>
+                <h3 class="job-card-title"><%= jobapp[:user].fname %> <%= jobapp[:user].lname %></h3>
+                <p class="job-card-description">Applying for: <%= jobapp[:job].job_title %></p>
+                <div class="location-icon-width">
+                    <i class="fas fa-map-pin icon"><span class="icon-text"><%= jobapp[:user].user_address %></span></i>
+                </div>
+                <p class="">"<%= jobapp[:jobapp].message %>"</p>
+                
+            </div>
+        </div>
+            <div class="flex accept-decline">
+                    <%= link_to "Accept", accept_jobapp_path(jobapp[:jobapp]), class: "button-card-applicant" %>
+                    <%= link_to "Decline", job_path(jobapp), class: "button-card-applicant" %>
+                </div>
+        </div>
+    </div>
+    <% end %>
+</div>

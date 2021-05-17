@@ -44,6 +44,8 @@ Rails.application.routes.draw do
 
   get '/user/:id/applicants', to: 'jobapps#applicant', as: :applicant
 
+  get '/user/:id/applicants', to: 'jobapps#accepted', as: :accepted
+
   # get '/jobapps/:id/accept', to: 'jobapps#accept', as: :accept
 
   resources :jobs do  
