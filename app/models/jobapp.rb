@@ -1,8 +1,9 @@
 class Jobapp < ApplicationRecord
     belongs_to :user
     belongs_to :job
-    has_many :accepted_jobs
-    has_many :declined_jobs
+    belongs_to :applying_user
+    # has_many :applying_users, class_name: "User"
+
 
     has_one_attached :photo
 end

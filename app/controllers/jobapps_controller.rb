@@ -28,27 +28,17 @@ class JobappsController < ApplicationController
   end
 
   def applicant
-    @applicants = current_user.applicants
-    # @applicants = []
-    # current_user.jobs.each do |job|
-    #   job.jobapps.each do |jobapp|
-    #     hash_jobapp = {job: jobapp.job, user: jobapp.user}
-    #     @applicants << hash_jobapp
-    #   end
-    # end
+    @applications = current_user.jobapps.includes(:job).includes(:user)
   end
 
   def accept
     @accept = Jobapp.find(params[:id])
     @accept.update_attribute(:accepted, true)
-    # @accept.accepted = true
-    # @accept.save!
     redirect_to applicant_path(current_user)
   end
 
   def accepted
-    @acceptedjobs = Jobapp.where(accepted: true).where(user_id: current_user)
-    # Jobapp.where(accepted: true)
+    @acceptedjobs = current_user.jobapps.where(accepted: true)
   end
 
   private

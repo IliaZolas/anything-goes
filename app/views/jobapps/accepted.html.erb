@@ -8,26 +8,26 @@
         <p> | </p>
         <p>Completed</p>
     </div>
-    <% @acceptedjobs.each do |jobapp| %>
+    <% @acceptedjobs.each do |accepted| %>
     <div class="applicant-card">
 
         <div class="applicant-info">
         <div class="flex">
-            <% if jobapp.user.photo.attached? %>
-                <%= cl_image_tag jobapp.user.photo.key, class: "applicant-image-small" %>
+            <% if accepted.user.photo.attached? %>
+                <%= cl_image_tag accepted.user.photo.key, class: "applicant-image-small" %>
             <% end %>
             <div>
-                <h3 class="job-card-title"><%= jobapp.user.fname %> <%= jobapp.user.lname %></h3>
-                <p class="job-card-description">Applying for: <%= jobapp.job.job_title %></p>
+                <h3 class="job-card-title"><%= accepted.user.fname %> <%= accepted.user.lname %></h3>
+                <p class="job-card-description">Applying for: <%= accepted.job.job_title %></p>
                 <div class="location-icon-width">
-                    <i class="fas fa-map-pin icon"><span class="icon-text"><%= jobapp.user.user_address %></span></i>
+                    <i class="fas fa-map-pin icon"><span class="icon-text"><%= accepted.user.user_address %></span></i>
                 </div>
-                <p class="">"<%= jobapp.message %>"</p>
+                <p class="">"<%= accepted.message %>"</p>
                 
             </div>
         </div>
             <div class="flex accept-decline">
-                    <%= link_to "Completed", accept_jobapp_path(jobapp), class: "button-card-applicant" %>
+                    <%= link_to "Completed", accept_jobapp_path(accepted), class: "button-card-applicant" %>
                 </div>
         </div>
     </div>
