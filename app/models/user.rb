@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :saved_jobs, through: :user_jobs, source: :job
   has_many :jobapps
   has_many :applied_jobs, through: :jobapps, source: :job
+  has_many :applicants, through: :jobs, source: :jobapps
 
   has_one_attached :photo
 

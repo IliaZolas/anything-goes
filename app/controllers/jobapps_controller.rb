@@ -28,7 +28,7 @@ class JobappsController < ApplicationController
   end
 
   def applicant
-    @applications = current_user.jobapps.includes(:job).includes(:user)
+    @applications = current_user.applicants
   end
 
   def accept
@@ -38,7 +38,7 @@ class JobappsController < ApplicationController
   end
 
   def accepted
-    @acceptedjobs = current_user.jobapps.where(accepted: true)
+    @acceptedjobs = Jobapp.where(accepted: true).where.not(user_id: current_user)
   end
 
   private
