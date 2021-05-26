@@ -38,7 +38,7 @@ class JobappsController < ApplicationController
   end
 
   def accepted
-    @acceptedjobs = Jobapp.where(accepted: true).where.not(user_id: current_user)
+    @acceptedjobs = current_user.applicants.where(accepted: true)
   end
 
   private
