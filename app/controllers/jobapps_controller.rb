@@ -37,8 +37,28 @@ class JobappsController < ApplicationController
     redirect_to applicant_path(current_user)
   end
 
+  def decline
+    @decline = Jobapp.find(params[:id])
+    @decline.update_attribute(:accepted, false)
+    redirect_to applicant_path(current_user)
+  end
+
+  def complete
+    @complete = Jobapp.find(params[:id])
+    @complete.update_attribute(:complete, true)
+    redirect_to applicant_path(current_user)
+  end
+
   def accepted
     @acceptedjobs = current_user.applicants.where(accepted: true)
+  end
+
+  def declined
+    @declinedjobs = current_user.applicants.where(accepted: false)
+  end
+
+  def completed
+    @completedjobs = current_user.applicants.where(complete: true)
   end
 
   private

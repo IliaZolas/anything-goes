@@ -1,0 +1,34 @@
+<div class="container-job-index">
+    <h1>All Completed Jobs by Applicants</h1>
+    <p>All applicants who have completed jobs should appear here</p>
+    <div class="flex">
+        <%= link_to "All", applicant_path(current_user) %>
+        <p> | </p>
+        <%= link_to "Accepted", accepted_path(current_user) %>
+        <p> | </p>
+        <%= link_to "Declined", declined_path(current_user) %>
+        <p> | </p>
+        <%= link_to "Completed", completed_path(current_user) %>
+    </div>
+    <% @completedjobs.each do |completed| %>
+    <div class="applicant-card">
+
+        <div class="applicant-info">
+        <div class="flex">
+            <% if completed.user.photo.attached? %>
+                <%= cl_image_tag completed.user.photo.key, class: "applicant-image-small" %>
+            <% end %>
+            <div>
+                <h3 class="job-card-title"><%= completed.user.fname %> <%= completed.user.lname %></h3>
+                <p class="job-card-description">Applying for: <%= completed.job.job_title %></p>
+                <div class="location-icon-width">
+                    <i class="fas fa-map-pin icon"><span class="icon-text"><%= completed.user.user_address %></span></i>
+                </div>
+                <p class="">"<%= completed.message %>"</p>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+    <% end %>
+</div>

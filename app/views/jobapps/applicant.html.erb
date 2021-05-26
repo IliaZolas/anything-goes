@@ -2,11 +2,13 @@
     <h1>All Applicants to my jobs</h1>
     <p>All applicants to your jobs should appear here</p>
     <div class="flex">
+        <%= link_to "All", applicant_path(current_user) %>
+        <p> | </p>
         <%= link_to "Accepted", accepted_path(current_user) %>
         <p> | </p>
-        <p>Declined</p>
+        <%= link_to "Declined", declined_path(current_user) %>
         <p> | </p>
-        <p>Completed</p>
+        <%= link_to "Completed", completed_path(current_user) %>
     </div>
     <% @applications.each do |application| %>
     <div class="applicant-card">
@@ -28,7 +30,7 @@
         </div>
             <div class="flex accept-decline">
                     <%= link_to "Accept", accept_jobapp_path(application), class: "button-card-applicant" %>
-                    <%= link_to "Decline", job_path(application), class: "button-card-applicant" %>
+                    <%= link_to "Decline", decline_jobapp_path(application), class: "button-card-applicant" %>
                 </div>
         </div>
     </div>

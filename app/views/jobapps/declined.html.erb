@@ -1,0 +1,37 @@
+<div class="container-job-index">
+    <h1>All Declined Applicants</h1>
+    <p>All applicants who have been declined should appear here</p>
+    <div class="flex">
+        <%= link_to "All", applicant_path(current_user) %>
+        <p> | </p>
+        <%= link_to "Accepted", accepted_path(current_user) %>
+        <p> | </p>
+        <%= link_to "Declined", declined_path(current_user) %>
+        <p> | </p>
+        <%= link_to "Completed", completed_path(current_user) %>
+    </div>
+    <% @declinedjobs.each do |declined| %>
+    <div class="applicant-card">
+
+        <div class="applicant-info">
+        <div class="flex">
+            <% if declined.user.photo.attached? %>
+                <%= cl_image_tag declined.user.photo.key, class: "applicant-image-small" %>
+            <% end %>
+            <div>
+                <h3 class="job-card-title"><%= declined.user.fname %> <%= declined.user.lname %></h3>
+                <p class="job-card-description">Applying for: <%= declined.job.job_title %></p>
+                <div class="location-icon-width">
+                    <i class="fas fa-map-pin icon"><span class="icon-text"><%= declined.user.user_address %></span></i>
+                </div>
+                <p class="">"<%= declined.message %>"</p>
+                
+            </div>
+        </div>
+            <div class="flex accept-decline">
+                    <%= link_to "Completed", accept_jobapp_path(declined), class: "button-card-applicant" %>
+                </div>
+        </div>
+    </div>
+    <% end %>
+</div>

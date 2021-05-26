@@ -38,6 +38,8 @@ Rails.application.routes.draw do
 
   resources :jobapps, only: [] do
     get :accept, on: :member
+    get :decline, on: :member
+    get :complete, on: :member
   end
 
   get '/user/:id/savedjobs', to: 'user_jobs#usersaved', as: :usersaved
@@ -46,6 +48,9 @@ Rails.application.routes.draw do
 
   get '/user/:id/applicants/accepted', to: 'jobapps#accepted', as: :accepted
 
+  get '/user/:id/applicants/declined', to: 'jobapps#declined', as: :declined
+
+  get '/user/:id/applicants/completed', to: 'jobapps#completed', as: :completed
   # get '/jobapps/:id/accept', to: 'jobapps#accept', as: :accept
 
   resources :jobs do  
