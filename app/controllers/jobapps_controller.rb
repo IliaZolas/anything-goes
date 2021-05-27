@@ -27,9 +27,13 @@ class JobappsController < ApplicationController
   def destroy
   end
 
+  #Jobs listed in Applicants
+
   def applicant
     @applications = current_user.applicants
   end
+  
+  #button actions
 
   def accept
     @accept = Jobapp.find(params[:id])
@@ -49,6 +53,8 @@ class JobappsController < ApplicationController
     redirect_to applicant_path(current_user)
   end
 
+  #Applicants menus
+
   def accepted
     @acceptedjobs = current_user.applicants.where(accepted: true)
   end
@@ -58,6 +64,20 @@ class JobappsController < ApplicationController
   end
 
   def completed
+    @completedjobs = current_user.applicants.where(complete: true)
+  end
+
+  #Jobs listed in User Applied
+
+  def jobaccepted
+    @acceptedjobs = current_user.applicants.where(accepted: true)
+  end
+
+  def jobdeclined
+    @declinedjobs = current_user.applicants.where(accepted: false)
+  end
+
+  def jobcompleted
     @completedjobs = current_user.applicants.where(complete: true)
   end
 

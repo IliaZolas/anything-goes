@@ -46,12 +46,22 @@ Rails.application.routes.draw do
 
   get '/user/:id/applicants', to: 'jobapps#applicant', as: :applicant
 
+  #Job poster applicants
+
   get '/user/:id/applicants/accepted', to: 'jobapps#accepted', as: :accepted
 
   get '/user/:id/applicants/declined', to: 'jobapps#declined', as: :declined
 
   get '/user/:id/applicants/completed', to: 'jobapps#completed', as: :completed
-  # get '/jobapps/:id/accept', to: 'jobapps#accept', as: :accept
+
+  #Applied Jobs
+
+  get '/jobs/:id/jobapps/accepted', to: 'jobapps#jobaccepted', as: :jobaccepted
+
+  get '/jobs/:id/jobapps/declined', to: 'jobapps#jobdeclined', as: :jobdeclined
+
+  get '/jobs/:id/jobapps/completed', to: 'jobapps#jobcompleted', as: :jobcompleted
+ 
 
   resources :jobs do  
     resources :jobapps
