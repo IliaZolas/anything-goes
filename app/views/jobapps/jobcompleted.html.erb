@@ -10,29 +10,29 @@
         <p> | </p>
         <%= link_to "Completed", jobcompleted_path(current_user) %>
     </div>
-    <% @declinedjobs.each do |declined| %>
+        <% @completedjobs.each do |completed| %>
     <div class="job-card">
         <div class="job-image">
-            <% if declined.job.photo.attached? %>
-                <%= cl_image_tag declined.job.photo.key, class: "job-image" %>
+            <% if completed.job.photo.attached? %>
+                <%= cl_image_tag completed.job.photo.key, class: "job-image" %>
             <% end %>
         </div>
         <div class="job-info">
-            <h3 class="job-card-title"><%= declined.job.job_title %></h3>
-            <p class="job-card-description"><%= declined.job.job_description %></p>
+            <h3 class="job-card-title"><%= completed.job.job_title %></h3>
+            <p class="job-card-description"><%= completed.job.job_description %></p>
             <div class="flex">
-                <p class="job-card-description padding-right">Applicant:<%= declined.user.fname %></p>
-                <p class="job-card-description">Job Poster:<%= declined.job.user.fname %></p>
+                <p class="job-card-description padding-right">Applicant:<%= completed.user.fname %></p>
+                <p class="job-card-description">Job Poster:<%= completed.job.user.fname %></p>
             </div>
-            <p class="job-card-price">Paying R <%= declined.job.job_price %></p>
+            <p class="job-card-price">Paying R <%= completed.job.job_price %></p>
             <div class="job-view-button flex end card-icons">
                 <div class="location-icon-width">
-                    <i class="fas fa-map-pin icon"><span class="icon-text"><%= declined.job.job_location %></span></i>
+                    <i class="fas fa-map-pin icon"><span class="icon-text"><%= completed.job.job_location %></span></i>
                 </div>
-                <%= link_to job_path(declined), method: :delete do %>
+                <%= link_to job_path(completed), method: :delete do %>
                     <i class="fas fa-trash icon"></i>
                 <% end %>
-                <%= link_to "View Job", job_path(declined), class: "button-card" %>
+                <%= link_to "View Job", job_path(completed), class: "button-card" %>
             </div>
         </div>
     </div>

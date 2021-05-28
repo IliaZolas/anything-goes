@@ -70,15 +70,15 @@ class JobappsController < ApplicationController
   #Jobs listed in User Applied
 
   def jobaccepted
-    @acceptedjobs = current_user.applicants.where(accepted: true)
+    @acceptedjobs = Jobapp.where(user_id: current_user).where(accepted: true)
   end
 
   def jobdeclined
-    @declinedjobs = current_user.applicants.where(accepted: false)
+    @declinedjobs = Jobapp.where(user_id: current_user).where(accepted: true).where(accepted: false)
   end
 
   def jobcompleted
-    @completedjobs = current_user.applicants.where(complete: true)
+    @completedjobs = Jobapp.where(user_id: current_user).where(accepted: true).where(complete: true)
   end
 
   private
