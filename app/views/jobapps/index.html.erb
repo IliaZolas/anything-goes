@@ -2,13 +2,13 @@
     <h1>All Applied Jobs</h1>
     <p>All jobs you applied to should appear here</p>
     <div class="flex">
-        <%= link_to "All", applicant_path(current_user) %>
+        <%= link_to "All", job_jobapps_path(current_user) %>
         <p> | </p>
-        <%= link_to "Accepted", accepted_path(current_user) %>
+        <%= link_to "Accepted", jobaccepted_path(current_user) %>
         <p> | </p>
-        <%= link_to "Declined", declined_path(current_user) %>
+        <%= link_to "Declined", jobdeclined_path(current_user) %>
         <p> | </p>
-        <%= link_to "Completed", completed_path(current_user) %>
+        <%= link_to "Completed", jobcompleted_path(current_user) %>
     </div>
     <% @jobapp.each do |jobapp| %>
     <div class="job-card">

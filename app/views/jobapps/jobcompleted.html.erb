@@ -2,37 +2,37 @@
     <h1>All Completed Jobs</h1>
     <p>All jobs you completed should appear here</p>
     <div class="flex">
-        <%= link_to "All", applicant_path(current_user) %>
+        <%= link_to "All", job_jobapps_path(current_user) %>
         <p> | </p>
-        <%= link_to "Accepted", accepted_path(current_user) %>
+        <%= link_to "Accepted", jobaccepted_path(current_user) %>
         <p> | </p>
-        <%= link_to "Declined", declined_path(current_user) %>
+        <%= link_to "Declined", jobdeclined_path(current_user) %>
         <p> | </p>
-        <%= link_to "Completed", completed_path(current_user) %>
+        <%= link_to "Completed", jobcompleted_path(current_user) %>
     </div>
-    <% @jobapp.each do |jobapp| %>
+    <% @declinedjobs.each do |declined| %>
     <div class="job-card">
         <div class="job-image">
-            <% if jobapp.job.photo.attached? %>
-                <%= cl_image_tag jobapp.job.photo.key, class: "job-image" %>
+            <% if declined.job.photo.attached? %>
+                <%= cl_image_tag declined.job.photo.key, class: "job-image" %>
             <% end %>
         </div>
         <div class="job-info">
-            <h3 class="job-card-title"><%= jobapp.job.job_title %></h3>
-            <p class="job-card-description"><%= jobapp.job.job_description %></p>
+            <h3 class="job-card-title"><%= declined.job.job_title %></h3>
+            <p class="job-card-description"><%= declined.job.job_description %></p>
             <div class="flex">
-                <p class="job-card-description padding-right">Applicant:<%= jobapp.user.fname %></p>
-                <p class="job-card-description">Job Poster:<%= jobapp.job.user.fname %></p>
+                <p class="job-card-description padding-right">Applicant:<%= declined.user.fname %></p>
+                <p class="job-card-description">Job Poster:<%= declined.job.user.fname %></p>
             </div>
-            <p class="job-card-price">Paying R <%= jobapp.job.job_price %></p>
+            <p class="job-card-price">Paying R <%= declined.job.job_price %></p>
             <div class="job-view-button flex end card-icons">
                 <div class="location-icon-width">
-                    <i class="fas fa-map-pin icon"><span class="icon-text"><%= jobapp.job.job_location %></span></i>
+                    <i class="fas fa-map-pin icon"><span class="icon-text"><%= declined.job.job_location %></span></i>
                 </div>
-                <%= link_to job_path(jobapp), method: :delete do %>
+                <%= link_to job_path(declined), method: :delete do %>
                     <i class="fas fa-trash icon"></i>
                 <% end %>
-                <%= link_to "View Job", job_path(jobapp), class: "button-card" %>
+                <%= link_to "View Job", job_path(declined), class: "button-card" %>
             </div>
         </div>
     </div>
