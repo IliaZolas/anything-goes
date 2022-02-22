@@ -260,6 +260,7 @@ GEM
 
 PLATFORMS
   -darwin-21
+  ruby
   x86_64-darwin-20
   x86_64-linux
 
@@ -292,7 +293,7 @@ DEPENDENCIES
   webpacker (~> 4.0)
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.7.5p203
 
 BUNDLED WITH
    2.3.6
